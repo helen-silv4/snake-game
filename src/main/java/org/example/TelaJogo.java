@@ -14,7 +14,7 @@ public class TelaJogo extends JPanel implements ActionListener {
     private static final int TAMANHO_BLOCO = 50;
     private static final int UNIDADES = LARGURA_TELA * ALTURA_TELA / (TAMANHO_BLOCO * TAMANHO_BLOCO);
     private static final int INTERVALO = 200; // velocidade da cobrinha
-    private static final String NOME_FONTE = "Ink Free";
+    private static final String NOME_FONTE = "Arial";
     private final int[] eixoX = new int[UNIDADES];
     private final int[] eixoY = new int[UNIDADES];
     private int corpoCobra = 6;
@@ -29,7 +29,8 @@ public class TelaJogo extends JPanel implements ActionListener {
     TelaJogo() {
         random = new Random();
         setPreferredSize(new Dimension(LARGURA_TELA, ALTURA_TELA));
-        setBackground(Color.WHITE);
+        setBackground(Color.BLACK);
+        setBorder(BorderFactory.createLineBorder(Color.GRAY, 5));
         setFocusable(true);
         addKeyListener(new LeitorDeTeclasAdapter());
         iniciarJogo();
@@ -43,22 +44,21 @@ public class TelaJogo extends JPanel implements ActionListener {
     }
 
     @Override
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g){
         super.paintComponent(g);
         desenharTela(g);
     }
 
-    public void desenharTela(Graphics g) {
-
-        if (estaRodando) {
+    public void desenharTela(Graphics g){
+        if(estaRodando) {
             g.setColor(Color.red);
-            g.fillOval(blocoX, blocoY, TAMANHO_BLOCO, TAMANHO_BLOCO);  // bloco a ser comido
+            g.fillOval(blocoX, blocoY, TAMANHO_BLOCO, TAMANHO_BLOCO); // bloco a ser comido
 
             for (int i = 0; i < corpoCobra; i++) {
-                if (i == 0) {
+                if (i == 0) { // cabeça
                     g.setColor(Color.green);
                     g.fillRect(eixoX[0], eixoY[0], TAMANHO_BLOCO, TAMANHO_BLOCO);
-                } else {
+                } else { // corpo
                     g.setColor(new Color(45, 180, 0));
                     g.fillRect(eixoX[i], eixoY[i], TAMANHO_BLOCO, TAMANHO_BLOCO);
                 }
@@ -71,13 +71,7 @@ public class TelaJogo extends JPanel implements ActionListener {
             fimDeJogo(g);
         }
     }
-
-    private void criarBloco() {
-        blocoX = random.nextInt(LARGURA_TELA / TAMANHO_BLOCO) * TAMANHO_BLOCO;
-        blocoY = random.nextInt(ALTURA_TELA / TAMANHO_BLOCO) * TAMANHO_BLOCO;
-    }
-
-    public void fimDeJogo(Graphics g) {
+    public void fimDeJogo(Graphics g){
         g.setColor(Color.red);
         g.setFont(new Font(NOME_FONTE, Font.BOLD, 40));
         FontMetrics fontePontuacao = getFontMetrics(g.getFont());
@@ -85,7 +79,12 @@ public class TelaJogo extends JPanel implements ActionListener {
         g.setColor(Color.red);
         g.setFont(new Font(NOME_FONTE, Font.BOLD, 75));
         FontMetrics fonteFinal = getFontMetrics(g.getFont());
-        g.drawString("\uD83D\uDE1D Fim do Jogo.", (LARGURA_TELA - fonteFinal.stringWidth("Fim do Jogo")) / 2, ALTURA_TELA / 2);
+        g.drawString("Fim do Jogo!", (LARGURA_TELA - fonteFinal.stringWidth("Fim do Jogo")) / 2, ALTURA_TELA / 2);
+    }
+
+    private void criarBloco() {
+        blocoX = random.nextInt(LARGURA_TELA / TAMANHO_BLOCO) * TAMANHO_BLOCO;
+        blocoY = random.nextInt(ALTURA_TELA / TAMANHO_BLOCO) * TAMANHO_BLOCO;
     }
 
     public void actionPerformed(ActionEvent e) {
