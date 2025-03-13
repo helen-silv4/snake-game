@@ -9,8 +9,9 @@ public class IniciarJogo extends JFrame {
     }
 
     IniciarJogo() {
+        setUndecorated(true); // remove a borda da janela
         add(new TelaJogo());
-        setTitle("Jogo da Cobrinha - Snake game");
+        setTitle("Snake Game");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         pack();
