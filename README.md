@@ -1,6 +1,6 @@
 <h1 align="center">Desafio de Computação Gráfica - Snake Game</h1>
 
-Este desafio consiste em utilizar bibliotecas para desenvolver uma interface, além de empregar pontos e vetores para recriar o clássico jogo da cobrinha. 🐍✨
+Este desafio consiste em utilizar bibliotecas para desenvolver uma interface, além de empregar pontos e vetores para recriar o clássico jogo da cobrinha. O objetivo é explorar conceitos de gráficos e movimentação, criando uma experiência interativa com base nos princípios de programação. O desafio faz parte da disciplina de Computação Gráfica, do curso de Ciência da Computação - 5º Semestre. 🐍✨
 
 <p align="center">
   <img alt="gif snake-game" src="assets/gif-snak-game.gif" width="100%">
@@ -37,6 +37,14 @@ Defina o que acontece quando o jogo termina e como ele termina (exemplo: quando 
 
 - **Teste seu jogo**:
 Jogue seu jogo para garantir que tudo funcione conforme o esperado. Procure por bugs ou áreas de melhoria.
+
+## :rocket: Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- Java SE (Swing) para a interface gráfica
+- AWT para componentes gráficos e gerenciamento de eventos
+- Git e Github
 
 ## :desktop_computer: IDE
 
