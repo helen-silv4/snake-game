@@ -6,7 +6,7 @@ Este desafio consiste em utilizar bibliotecas para desenvolver uma interface, al
   <img alt="gif snake-game" src="assets/gif-snak-game.gif" width="100%">
 </p>
 
-## :writing_hand: Etapas Propostas:
+## :writing_hand: Etapas Propostas
 - **Bibliotecas de Pesquisa**:
 Procure bibliotecas que possam ajudá-lo a criar gráficos e interfaces. Algumas opções populares na linguagem Python incluem Pygame, Processing ou qualquer outra biblioteca com a qual você se sinta confortável. .
 
